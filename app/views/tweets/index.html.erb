@@ -1,0 +1,23 @@
+<h1>Tweet header</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>User</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tweets.each do |tweet| %>
+        <tr>
+            <td><%= tweet.message %></td>
+            <td><%= tweet.user.username %></td>
+            <td><%= link_to "New Tweet", new_tweet_path %></td>
+            <td><%= link_to 'Show', tweet %></td>
+            <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+            <td><%= link_to 'Destroy', tweet, method: :delete, data: { confrim: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
